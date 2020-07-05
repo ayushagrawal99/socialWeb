@@ -1,0 +1,35 @@
+#sign-up-container{
+    width: 40%;
+    position: absolute;
+    top: 20%;
+    margin-left: 30%;
+    border: 1px solid;
+    #sign-up-details-left{
+        display: inline-block;
+        width: 48%;
+        border: 1px solid red;
+        #sign-up-div{
+            width: 100%;
+            h2{
+                font-size: 2rem;
+                margin-left: 30%;
+                margin-top: 20px;
+            }
+            #sign-up-fields{
+                margin-top: 20px;
+                .form-fields{
+                    margin-left: 15%;
+                    margin-bottom: 10px;
+                    .inputs{
+                        padding: 5px;
+                    }
+                }
+            }
+        }
+    }
+    #sign-up-details-right{
+        display: inline-block;
+        width: 48%;
+        border: 1px solid black;
+    }
+}

@@ -1,0 +1,39 @@
+
+<div id="sign-in-container">
+    <div id="sign-in-details">
+        <div id="sign-in-div">
+            <div id="logo">
+
+            </div>
+            <h2>Sign in</h2>
+            <form action="/users/create_session" method="POST">
+                <div id="sign-in-fields">
+                    <div class="form-fields">
+                        <label for="email"></label>
+                        <input type="text" name="email" id="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-fields">
+                        <label for="password"></label>
+                        <input type="password" name="password" id="password" placeholder="Password" required>
+                    </div>
+                </div>
+                <div id="sign-in-button">
+                    <button type="submit">
+                        sign-in
+                    </button>
+                </div>
+            </form>
+        </div>
+        <div class="google-login-button">
+            <a href="/users/auth/google"><button>GOOGLE</button></a>
+        </div>
+        <div class="github-login-button">
+            <a href="/users/auth/github"><button>GITHUB</button></a>
+        </div>
+    </div>
+    <div >
+        <div id="forget-password">
+            <a href="/forget-password/password-link">forget password?</a>
+        </div>
+    </div>
+</div>

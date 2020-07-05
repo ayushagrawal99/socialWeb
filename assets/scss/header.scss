@@ -1,0 +1,46 @@
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+#nav-header{
+    width: 100%;
+    height: 11vh;
+    background-color: DodgerBlue;
+    display: flex;
+    justify-content: space-between;
+    #header-logo{
+        width: 15%;
+        padding: 20px;
+        h1{
+            font-size: 2rem;
+        }
+    }
+    #header-credential{
+        width: 25%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        .header-sign{
+            width: 35%;
+            margin-top: 20px;
+            a{
+                button{
+                    width: 100%;
+                    height: 80%;
+                    background-color: DodgerBlue;
+                    border: none;
+                    i{
+                        font-size: 1.6em;
+                    }
+                    span{
+                        margin-left: 5px;
+                        font-size: 1.6rem;
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+    }
+}
