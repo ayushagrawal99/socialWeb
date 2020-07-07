@@ -14,6 +14,11 @@
     padding: 20px; }
     #nav-header #header-logo h1 {
       font-size: 2rem; }
+      #nav-header #header-logo h1 a {
+        text-decoration: none;
+        color: black; }
+    #nav-header #header-logo h1:hover {
+      transform: scale(1.1); }
   #nav-header #header-credential {
     width: 25%;
     display: flex;
@@ -26,10 +31,46 @@
         width: 100%;
         height: 80%;
         background-color: DodgerBlue;
-        border: none; }
+        border: none;
+        cursor: pointer; }
         #nav-header #header-credential .header-sign a button i {
           font-size: 1.6em; }
         #nav-header #header-credential .header-sign a button span {
           margin-left: 5px;
           font-size: 1.6rem;
           font-weight: bold; }
+      #nav-header #header-credential .header-sign a button:focus {
+        outline: none; }
+      #nav-header #header-credential .header-sign a button:hover {
+        transform: scale(1.2); }
+
+@media only screen and (max-width: 430px) {
+  #nav-header {
+    width: 100%;
+    height: 9vh;
+    background-color: DodgerBlue;
+    display: flex;
+    justify-content: space-between; }
+    #nav-header #header-logo {
+      width: 10%;
+      padding: 10px;
+      margin-top: 7px; }
+      #nav-header #header-logo h1 {
+        font-size: 1.2rem; }
+        #nav-header #header-logo h1 a {
+          text-decoration: none;
+          color: black; }
+    #nav-header #header-credential {
+      width: 45%; }
+      #nav-header #header-credential .header-sign {
+        width: 50%;
+        margin-top: 15px; }
+        #nav-header #header-credential .header-sign a button {
+          width: 100%;
+          height: auto;
+          margin: 0; }
+          #nav-header #header-credential .header-sign a button i {
+            font-size: 0.7rem; }
+          #nav-header #header-credential .header-sign a button span {
+            margin-left: 1px;
+            font-size: 0.9rem; } }

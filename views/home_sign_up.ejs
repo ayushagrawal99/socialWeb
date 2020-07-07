@@ -1,46 +1,70 @@
 <link rel="stylesheet" href="/css/home_sign_up.css">
 
-<div id="sign-up-container">   
-    <div id="sign-up-details-left">
-        <div id="sign-up-div">
+<div id="sign-up-container">
+    <div id="sign-up-fields">
+        <form action="/users/create" method="POST"></form>
             <h2>Sign up</h2>
-            <form action="/users/create" method="POST">
-                <div id="sign-up-fields">
-                    <div class="form-fields">
-                        <label for="name"></label>
-                        <input type="text" name="name" class="inputs" id="name" placeholder="Your Name" required>
-                    </div>
-                    <div class="form-fields">
-                        <label for="email"></label>
-                        <input type="text" name="email" id="email" placeholder="Your Email" required>
-                    </div>
-                    <div class="form-fields">
-                        <label for="password"></label>
-                        <input type="password" name="password" id="password" placeholder="Password" required>
-                    </div>
-                    <div class="form-fields">
-                        <label for="confirm_password"></label>
-                        <input type="password" name="confirm_password" id="confirm_password" placeholder="Password again" required>
-                    </div>
-                    <div class="form-fields">
-                        <label for="phone"></label>
-                        <input type="text" name="phone" id="phone" placeholder="Phone Number" required>
-                    </div>
-                </div>
-                <div id="sign-up-button">
-                    <button type="submit">
-                        Register
-                    </button>
-                </div>
-            </form>
+            <div class="form-fields">
+                <i class="fas fa-user-alt"></i>
+                <input type="text" name="name" class="inputs" id="name" placeholder="Your Name" required>
+            </div>
+            <div class="form-fields">
+                <i class="fas fa-envelope"></i>
+                <input type="email" name="email" id="email" placeholder="Your Email" required>
+            </div>
+            <div class="form-fields">
+                <i class="fas fa-unlock-alt"></i>
+                <input type="password" name="password" id="password" placeholder="Password" required>
+            </div>
+            <div class="form-fields">
+                <i class="fas fa-unlock-alt"></i>
+                <input type="password" name="confirm_password" id="confirm_password" placeholder="Password again" required>
+            </div>
+            <div class="form-fields">
+                <i class="fas fa-phone-square"></i>
+                <input type="text" name="phone" id="phone" placeholder="Phone Number" required>
+            </div>
+            <div class="form-fields-submit">
+                <button type="submit">
+                    <i class="fas fa-user-plus"></i>
+                    <span>SIGN UP</span>
+                </button>
+            </div>
+            <hr>
+            <div id="extra-sign-up">
+                <span>If you have already account then <a href="/sign-in">sign-in</a></span>
+            </div>
+        </form>
+    </div>
+    <div id="sign-up-details-left">
+        <div id="company-info">
+            <img src="/images/sign-up-pic.png" alt="SIgn-in">
         </div>
-        <div>
-            <p>if you have already account <a href="/sign-in">sign-in</a></p>
+        <div id="auth-by-others">
+            <hr>
+            <p>or sign up using</p>
+            <div class="authentication">
+                <a href="/users/auth/google">
+                    <button>
+                        <i class="fab fa-google"></i>
+                        <span>Google</span>
+                    </button>
+                </a>
+            </div>
+            <div class="authentication">
+                <a href="/users/auth/github">
+                    <button>
+                        <i class="fab fa-github-square"></i>
+                        <span>github</span>
+                    </button>
+                </a>
+            </div>
         </div>
     </div>
-    <div id="sign-up-details-right">
-        <div>
-            <a href="/users/auth/google"><button>GOOGLE</button></a>
-        </div>
+    <div id="divider">
+        <div class="or">OR</div>
     </div>
 </div>
+
+
+

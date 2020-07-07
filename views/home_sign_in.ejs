@@ -1,39 +1,48 @@
+<link rel="stylesheet" href="/css/home_sign_in.css">
 
 <div id="sign-in-container">
-    <div id="sign-in-details">
-        <div id="sign-in-div">
-            <div id="logo">
-
-            </div>
-            <h2>Sign in</h2>
+    <div id="sign-in-div">
+        <div id="sign-in-details">
             <form action="/users/create_session" method="POST">
-                <div id="sign-in-fields">
-                    <div class="form-fields">
-                        <label for="email"></label>
-                        <input type="text" name="email" id="email" placeholder="Your Email" required>
-                    </div>
-                    <div class="form-fields">
-                        <label for="password"></label>
-                        <input type="password" name="password" id="password" placeholder="Password" required>
-                    </div>
+                <h1>Sign in</h1>
+                <div class="form-fields">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" name="email" id="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-fields">
+                    <i class="fas fa-unlock-alt"></i>
+                    <input type="password" name="password" id="password" placeholder="Password" required>
                 </div>
                 <div id="sign-in-button">
                     <button type="submit">
-                        sign-in
+                        <i class="fas fa-sign-in-alt"></i>
+                        <span>SIGN IN</span>
                     </button>
-                </div>
+                </div><hr>
             </form>
         </div>
-        <div class="google-login-button">
-            <a href="/users/auth/google"><button>GOOGLE</button></a>
+        <div id="social-auth">
+            <p>or sign in using</p>
+            <div class="auth-login-button">
+                <a href="/users/auth/google">
+                    <button>
+                        <i class="fab fa-google"></i>
+                        <span>Google</span>
+                    </button>
+                </a>
+            </div>
+            <div class="auth-login-button">
+                <a href="/users/auth/github">
+                    <button>
+                        <i class="fab fa-github-square"></i>
+                        <span>github</span>
+                    </button>
+                </a>
+            </div><hr>
         </div>
-        <div class="github-login-button">
-            <a href="/users/auth/github"><button>GITHUB</button></a>
-        </div>
-    </div>
-    <div >
         <div id="forget-password">
-            <a href="/forget-password/password-link">forget password?</a>
+            <a href="/forget-password/password-link">forget password?</a><br><br>
+             <span>If you don't have account then<a href="/">sign up</span></a>
         </div>
     </div>
 </div>

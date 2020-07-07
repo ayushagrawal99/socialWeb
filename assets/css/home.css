@@ -1,0 +1,111 @@
+#home-container {
+  display: flex;
+  width: 100%;
+  height: 100vh; }
+  #home-container #left-home {
+    width: 21%;
+    height: 500px;
+    margin: 1% 2% 0 4%; }
+  #home-container #middle-home {
+    width: 40%;
+    height: 500px;
+    margin: 1% 2% 0 1%; }
+  #home-container #aside-home {
+    width: 23%;
+    height: 100%;
+    margin: 0% 0 0 1%;
+    border-left: 1px solid black; }
+    #home-container #aside-home #search-user {
+      width: 100%;
+      height: auto;
+      margin: 4% 7%;
+      box-sizing: border-box; }
+      #home-container #aside-home #search-user span {
+        width: 70%;
+        border: 1px solid;
+        border-radius: 12px;
+        padding: 5px;
+        background-color: whitesmoke; }
+        #home-container #aside-home #search-user span i {
+          font-size: 1rem;
+          margin-left: 1%; }
+        #home-container #aside-home #search-user span #search-input {
+          border: none;
+          margin-left: 1%;
+          font-size: 15px;
+          padding: 2px;
+          color: black;
+          background-color: inherit; }
+        #home-container #aside-home #search-user span input[type="text"]:focus {
+          outline: none; }
+      #home-container #aside-home #search-user #search-submit {
+        width: 20%;
+        margin-left: 5%;
+        padding: 4px;
+        font-size: 14px;
+        border-radius: 10px;
+        cursor: pointer;
+        color: blue;
+        background-color: white;
+        font-weight: 600;
+        border: 2px solid; }
+      #home-container #aside-home #search-user #search-submit:hover {
+        transform: scale(1.1); }
+      #home-container #aside-home #search-user input[type="submit"]:focus {
+        outline: none; }
+    #home-container #aside-home #users-list {
+      width: 90%;
+      height: 100%;
+      margin-left: 7%; }
+      #home-container #aside-home #users-list h3 {
+        margin: 2% 0 3% 30%;
+        font-size: 27px;
+        font-family: monospace; }
+      #home-container #aside-home #users-list #all-users {
+        width: 94%;
+        margin: 3%;
+        height: 90vh;
+        border: 1px solid white;
+        background-color: ghostwhite;
+        border-radius: 15px; }
+        #home-container #aside-home #users-list #all-users ul li {
+          width: 90%;
+          margin: 5%;
+          height: 50px;
+          list-style: none;
+          background-color: inherit;
+          border-radius: 10px; }
+          #home-container #aside-home #users-list #all-users ul li #user {
+            display: flex; }
+            #home-container #aside-home #users-list #all-users ul li #user #user-pic {
+              width: 15%;
+              height: 40px;
+              border: 1px solid;
+              margin: 2% 0 1% 4%; }
+              #home-container #aside-home #users-list #all-users ul li #user #user-pic img {
+                width: 100%;
+                height: 100%;
+                border-radius: 60%; }
+            #home-container #aside-home #users-list #all-users ul li #user #user-name {
+              width: 50%;
+              height: auto;
+              margin: 2.5% 4%; }
+              #home-container #aside-home #users-list #all-users ul li #user #user-name a {
+                text-decoration: none; }
+                #home-container #aside-home #users-list #all-users ul li #user #user-name a h2 {
+                  font-size: 15px;
+                  color: black;
+                  font-family: "sans-serif"; }
+            #home-container #aside-home #users-list #all-users ul li #user #user-logo {
+              width: 12%;
+              height: 30px;
+              margin: 2.5% 0 2% 4%;
+              border: 1px solid;
+              border-radius: 50%;
+              cursor: pointer; }
+              #home-container #aside-home #users-list #all-users ul li #user #user-logo i {
+                font-size: 0.9rem;
+                padding: 6px;
+                color: blue; }
+        #home-container #aside-home #users-list #all-users ul li:hover {
+          background-color: Gainsboro; }

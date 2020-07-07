@@ -1,0 +1,139 @@
+body {
+  background: linear-gradient(to right, #ffffcc -26%, #ccffff 101%); }
+
+#sign-in-container {
+  font-family: "Arial, Helvetica, sans-serif";
+  position: relative;
+  width: 25%;
+  height: 500px;
+  margin: 4% auto;
+  background-color: white;
+  border-radius: 15px; }
+  #sign-in-container #sign-in-div {
+    position: absolute;
+    box-sizing: border-box;
+    width: 90%;
+    height: 95%;
+    margin: 5%; }
+    #sign-in-container #sign-in-div #sign-in-details {
+      width: 100%;
+      box-sizing: border-box;
+      height: auto; }
+      #sign-in-container #sign-in-div #sign-in-details h1 {
+        font-family: "Noto Sans";
+        font-size: 2rem;
+        margin-left: 35%;
+        margin-bottom: 30px; }
+      #sign-in-container #sign-in-div #sign-in-details .form-fields {
+        display: block;
+        width: 70%;
+        margin: 5% 0 5% 15%;
+        border-bottom: 1px solid; }
+        #sign-in-container #sign-in-div #sign-in-details .form-fields i {
+          font-size: 1.1rem;
+          color: gray; }
+        #sign-in-container #sign-in-div #sign-in-details .form-fields input[type="email"],
+        #sign-in-container #sign-in-div #sign-in-details .form-fields input[type="password"] {
+          box-sizing: border-box;
+          width: 75%;
+          margin-left: 3%;
+          padding: 3px 6px 6px 6px;
+          font-size: 14px;
+          border: none;
+          transition: 0.5s ease; }
+        #sign-in-container #sign-in-div #sign-in-details .form-fields input:focus {
+          outline: none; }
+      #sign-in-container #sign-in-div #sign-in-details #sign-in-button {
+        width: 40%;
+        margin: 6% 0 6% 27%; }
+        #sign-in-container #sign-in-div #sign-in-details #sign-in-button button {
+          width: 100%;
+          padding: 3px;
+          background: linear-gradient(to right, #33ccff 0%, #ff99cc 100%);
+          border-radius: 10px;
+          cursor: pointer; }
+          #sign-in-container #sign-in-div #sign-in-details #sign-in-button button i {
+            font-size: 1rem;
+            padding: 5px; }
+          #sign-in-container #sign-in-div #sign-in-details #sign-in-button button span {
+            font-size: bold;
+            font-size: 15px;
+            padding: 5px; }
+        #sign-in-container #sign-in-div #sign-in-details #sign-in-button button:hover {
+          box-shadow: 5px 1px 5px 1px #888888;
+          transform: scale(1.1); }
+    #sign-in-container #sign-in-div #social-auth {
+      width: 100%;
+      margin: 3% 0; }
+      #sign-in-container #sign-in-div #social-auth p {
+        margin-left: 35%; }
+      #sign-in-container #sign-in-div #social-auth .auth-login-button {
+        width: 70%;
+        margin: 4% 0 3% 15%;
+        border: 1px solid; }
+        #sign-in-container #sign-in-div #social-auth .auth-login-button a button {
+          width: 100%;
+          height: 18%;
+          padding: 4px;
+          background-color: white;
+          border: none;
+          outline: none;
+          cursor: pointer; }
+          #sign-in-container #sign-in-div #social-auth .auth-login-button a button .fa-github-square {
+            font-size: 1.2rem;
+            padding: 4px; }
+          #sign-in-container #sign-in-div #social-auth .auth-login-button a button .fa-google {
+            background: conic-gradient(from -45deg, #ea4335 110deg, #4285f4 90deg 180deg, #34a853 180deg 270deg, #fbbc05 270deg) 73% 55%/150% 150% no-repeat;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-size: 1.2rem;
+            padding: 4px;
+            -webkit-text-fill-color: transparent; }
+          #sign-in-container #sign-in-div #social-auth .auth-login-button a button span {
+            font-size: 1.2rem;
+            padding: 4px;
+            font-weight: bold; }
+        #sign-in-container #sign-in-div #social-auth .auth-login-button a button:hover {
+          box-shadow: 5px 1px 5px 2px #888888;
+          transform: scale(1.1); }
+    #sign-in-container #sign-in-div #forget-password {
+      width: 100%;
+      border: 1px red;
+      margin-top: 5%; }
+      #sign-in-container #sign-in-div #forget-password a {
+        margin: 40% 0 0 33%; }
+      #sign-in-container #sign-in-div #forget-password a:hover {
+        color: red; }
+      #sign-in-container #sign-in-div #forget-password span {
+        margin-left: 5%;
+        font-size: 15px; }
+
+@media only screen and (max-width: 420px) {
+  #sign-in-container {
+    position: relative;
+    width: 75%;
+    height: 450px;
+    background: linear-gradient(to right, #ffffcc -26%, #ccffff 101%); }
+    #sign-in-container #sign-in-div #sign-in-details h1 {
+      margin-left: 30%;
+      margin-bottom: 30px; }
+    #sign-in-container #sign-in-div #sign-in-details .form-fields {
+      margin: 6% 0 7% 15%; }
+      #sign-in-container #sign-in-div #sign-in-details .form-fields input[type="email"],
+      #sign-in-container #sign-in-div #sign-in-details .form-fields input[type="password"] {
+        background-color: inherit; }
+      #sign-in-container #sign-in-div #sign-in-details .form-fields input:focus {
+        outline: none;
+        background-color: inherit; }
+    #sign-in-container #sign-in-div #sign-in-details #sign-in-button {
+      width: 50%;
+      margin: 10% 0 10% 23%; }
+    #sign-in-container #sign-in-div #social-auth p {
+      margin-left: 30%; }
+    #sign-in-container #sign-in-div #forget-password {
+      width: 100%;
+      margin-top: 7%; }
+      #sign-in-container #sign-in-div #forget-password a {
+        margin-top: 10px;
+        margin-left: 33%; } }

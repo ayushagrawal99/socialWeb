@@ -1,0 +1,139 @@
+#home-container{
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    #left-home{
+        width: 21%;
+        height: 500px;
+        margin: 1% 2% 0 4%;
+    }
+    #middle-home{
+        width: 40%;
+        height: 500px;
+        margin: 1% 2% 0 1%;
+        
+    }
+    #aside-home{
+        width: 23%;
+        height: 100%;
+        margin: 0% 0 0 1%;
+        border-left: 1px solid black;
+        #search-user{
+            width: 100%;
+            height : auto;
+            margin: 4% 7%;
+            box-sizing: border-box;
+            span{
+                width: 70%;
+                border: 1px solid ;
+                border-radius: 12px;
+                padding: 5px;
+                background-color: whitesmoke;
+                i{
+                    font-size: 1rem;
+                    margin-left: 1%;
+                }
+                #search-input{
+                    border: none;
+                    margin-left: 1%;
+                    font-size: 15px;
+                    padding: 2px;
+                    color: black;
+                    background-color: inherit;
+                }
+                input[type="text"]:focus{
+                    outline: none;
+                }
+            }
+            #search-submit{
+                width: 20%;
+                margin-left: 5%;
+                padding: 4px;
+                font-size: 14px;
+                border-radius: 10px;
+                cursor: pointer;
+                color: blue;
+                background-color: white;
+                font-weight: 600;
+                border: 2px solid;
+            }
+            #search-submit:hover{
+                transform: scale(1.1);
+            }
+            input[type="submit"]:focus{
+                outline: none;
+            }
+        }
+        #users-list{
+            width: 90%;
+            height: 100%;
+            margin-left: 7%;
+            h3{
+                margin: 2% 0 3% 30%;
+                font-size: 27px;
+                font-family: monospace;
+            }
+            #all-users{
+                width: 94%;
+                margin: 3%;
+                height: 90vh;
+                border: 1px solid white;
+                background-color: ghostwhite;
+                border-radius: 15px;
+                ul{
+                    li{
+                        width: 90%;
+                        margin: 5%;
+                        height: 50px;
+                        list-style: none;
+                        background-color: inherit;
+                        border-radius: 10px;
+                        #user{
+                            display: flex;
+                            #user-pic{
+                                width: 15%;
+                                height: 40px;
+                                border: 1px solid;
+                                margin: 2% 0 1% 4%;
+                                img{
+                                    width: 100%;
+                                    height: 100%;
+                                    border-radius: 60%;
+                                }
+                            }
+                            #user-name{
+                                width: 50%;
+                                height: auto;
+                                margin: 2.5% 4%;
+                                a{
+                                    text-decoration: none;
+                                    h2{
+                                        font-size: 15px;
+                                        color: black;
+                                        font-family: "sans-serif";
+                                    }
+                                }
+                            }
+                            #user-logo{
+                                width: 12%;
+                                height: 30px;
+                                margin: 2.5% 0 2% 4%;
+                                border: 1px solid;
+                                border-radius: 50%;
+                                cursor: pointer;
+                                i{
+                                    font-size: 0.9rem;
+                                    padding: 6px;
+                                    color: blue;
+                                }
+                            }
+                        }
+                    }
+                    li:hover{
+                        background-color: Gainsboro;
+                    }
+                }
+            }
+        }
+    }
+}
