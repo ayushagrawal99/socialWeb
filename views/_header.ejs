@@ -7,7 +7,7 @@
     <% if(locals.user) { %>
         <div id="header-credential">
             <div class="header-sign">
-                <a href="/users/profile">
+                <a href="/users/profile/<%= locals.user.id%>">
                     <button>
                         <i class="fas fa-user-circle"></i>
                         <span><%= locals.user.name%></span>

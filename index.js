@@ -62,6 +62,7 @@ app.use(passport.setAuthenticatedUser);
 app.use(flash());
 app.use(customMiddleware.setFlash);
 
+app.use('/uploads', express.static(__dirname +'/uploads'));
 app.use('/',require('./routes/home'));
 
 app.listen(port, function(err){

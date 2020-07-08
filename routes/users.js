@@ -11,7 +11,9 @@ router.post('/create_session',passport.authenticate(
     {failureRedirect : '/'}
 ),userController.createSession);
 
-router.get('/profile',passport.checkAuthentication,userController.profile);
+router.get('/profile/:id',passport.checkAuthentication,userController.profile);
+
+router.post('/update/:id',passport.checkAuthentication,userController.update);
 
 // google will respond on this url when google find out the user on own database
 router.get('/auth/google/callback', passport.authenticate(

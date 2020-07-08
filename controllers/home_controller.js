@@ -25,17 +25,18 @@ module.exports.signIn = function(req,res){
 
 // it will open user Home page when user sign-in done
 module.exports.home = async function(req,res){
-    if(req.cookies.user_id){
-        let user = await User.findById(req.cookies.user_id);
-        if(user){
-            return res.render('home',{
-                title : "Home Page"
-            })
-        }
-        return res.redirect('/');
-    } else{
-        return res.redirect('/');
+    try {
+        let user = await User.find({}).sort('-createdAt');
+        
+        return res.render('home',{
+            title : "Home Page",
+            all_user : user
+        })
+    } catch (error) {
+        console.log("error in home controller",error);
+        return;
     }
+        
 }
 
 // this will sign-out the user from website

@@ -58,9 +58,10 @@
       height: 100%;
       margin-left: 7%; }
       #home-container #aside-home #users-list h3 {
-        margin: 2% 0 3% 30%;
+        margin: 5% 0 3% 30%;
         font-size: 27px;
-        font-family: monospace; }
+        font-family: monospace;
+        color: DarkSlateGray; }
       #home-container #aside-home #users-list #all-users {
         width: 94%;
         margin: 3%;

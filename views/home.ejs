@@ -19,32 +19,21 @@
             <h3>All users</h3><hr>
             <div id="all-users">
                 <ul>
-                    <li>
-                        <div id="user">
-                            <div id="user-pic">
-                                <img src="" alt="">
+                    <% for(u of all_user) { %> 
+                        <li>
+                            <div id="user">
+                                <div id="user-pic">
+                                    <img src="" alt="">
+                                </div>
+                                <div id="user-name">
+                                    <a href="/users/profile/<%= u.id%>"><h2><%= u.name%></h2></a>
+                                </div>
+                                <div id="user-logo">
+                                    <a href=""><i class="fas fa-user-plus"></i></a>
+                                </div>
                             </div>
-                            <div id="user-name">
-                                <a href=""><h2>Ayush Agrawal</h2></a>
-                            </div>
-                            <div id="user-logo">
-                                <i class="fas fa-user-plus"></i>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div id="user">
-                            <div id="user-pic">
-                                <img src="" alt="">
-                            </div>
-                            <div id="user-name">
-                                <a href=""><h2>Ayush Agrawal</h2></a>
-                            </div>
-                            <div id="user-logo">
-                                <i class="fas fa-user-plus"></i>
-                            </div>
-                        </div>
-                    </li>
+                        </li>
+                    <%}%>
                 </ul>
             </div>
         </div>

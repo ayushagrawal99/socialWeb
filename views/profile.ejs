@@ -1,8 +1,133 @@
 <link rel="stylesheet" href="/css/profile.css">
 
-<h1>Profile Page</h1>
+<div id="user-profile-container">
+    <div id="profile-left"></div>
 
-<p><%=locals.user.name%></p>
-<p><%= locals.user.email%></p>
+    <% if(profile_user.id == locals.user.id) { %>
+        <div id="profile-info">
+            <div id="user-intro">
+                <div id="user-pic">
+                    <img src="<%= profile_user.avatar%>" alt="<%= profile_user.name%>">
+                </div>
+                <h1><%= locals.user.name%></h1>
+            </div><hr>
+            <div id="user-update">
+                <div id="user-input">
+                    <form action="/users/update/<%= profile_user.id%>" enctype="multipart/form-data" method="POST">
+                        <div class="form-fields">
+                            <label for="name">Profile Name :</label>
+                            <div id="change">
+                                <i class="fas fa-user-alt"></i>
+                                <input type="text" name="name" id="name" value="<%= profile_user.name%>" placeholder="New updated Name">
+                            </div>
+                        </div>
+                        <div class="form-fields">
+                            <label for="email">Email &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</label>
+                            <div id="change">
+                                <i class="fas fa-envelope"></i>
+                                <input type="email" name="email" id="name" value="<%= profile_user.email%>" placeholder="New updated Email">
+                            </div>
+                        </div>
+                        <div class="form-fields">
+                            <label for="phone">Phone Number :</label>
+                            <div id="change">
+                                <i class="fas fa-phone-square"></i>
+                                <input type="text" name="phone" id="phone" value="<%= profile_user.phone%>" placeholder="New updated phone">
+                            </div>
+                        </div>
+                        <div class="form-fields-pic">
+                            <label for="photo">upload image :</label>
+                            <div id="change">
+                                <i class="fas fa-upload"></i>
+                                <input type="file" name="avatar" id="photo"  placeholder="New updated picture">
+                            </div>
+                        </div>
+                        <div class="form-fields-submit">
+                            <button type="submit">
+                                <i class="fas fa-user-plus"></i>
+                                <span>Update</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    <%} else {%>
 
-<a href="/home">Home Page</a>
+        <div id="profile-info">
+            <div id="user-intro">
+                <div id="user-pic">
+                    <img src="/images/sign-up-pic.png" alt="<%= locals.user.name%>">
+                </div>
+                <h1><%= profile_user.name%></h1>
+            </div><hr>
+            <div id="user-update">
+                <div id="user-input">
+                    <div class="form-fields">
+                        <label for="name">Profile Name :</label>
+                        <span><%= profile_user.name%></span>
+                    </div>
+                    <div class="form-fields">
+                        <label for="email">Email &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</label>
+                         <span><%= profile_user.email%></span>
+                    </div>
+                    <div class="form-fields">
+                        <label for="phone">Phone Number :</label>
+                        <span><%= profile_user.phone%></span>
+                    </div>
+                </div>
+            </div>
+        </div>        
+
+    <%}%>
+
+
+    <div id="profile-friends">
+        <div id="search-user">
+            <form action="">
+                <span>
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="search-input" name="search" placeholder="serch users">
+                </span>
+                <input type="submit" value="search" id="search-submit">
+            </form>
+        </div>
+        <div id="friends-list">
+            <h3>All Friends</h3><hr>
+            <div id="all-friends">
+                <ul>
+                    <li>
+                        <div id="user">
+                            <div id="user-pic">
+                                <img src="" alt="">
+                            </div>
+                            <div id="user-name">
+                                <a href="#"><h2>AYUSH AGRAWAL</h2></a>
+                            </div>
+                            <div id="user-logo">
+                                <a href=""><i class="fas fa-user-plus"></i></a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+<% if(profile_user.id == locals.user.id) { %>
+    <p><%=locals.user.name%></p>
+    <p><%= locals.user.email%></p>
+    
+<%} else {%>
+    <p><%= profile_user.name%></p>
+    <p><%= profile_user.email%></p>
+<%}%>

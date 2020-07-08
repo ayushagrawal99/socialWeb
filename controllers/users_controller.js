@@ -28,8 +28,42 @@ module.exports.createSession = function(req,res){
 }
 
 // this will open user profile page
-module.exports.profile = function(req,res){
-    return res.render('profile',{
-        title : "profile Page"
-    })
+module.exports.profile = async function(req,res){
+    try {
+        let user = await User.findById(req.params.id);
+
+        return res.render('profile',{
+            title : "profile Page",
+            profile_user : user
+        })
+    } catch (error) {
+        console.log("error in profile",error);
+        return;
+    }
+}
+
+// this will update the user profile
+module.exports.update = async function(req,res){
+    try {
+        if(req.params.id == req.user.id){
+            let user = await User.findById(req.params.id);
+              User.uploadedAvatar(req,res, function(err){
+                if(err){console.log("error in file upload",err); return;}
+
+                user.name = req.body.name;
+                user.email = req.body.email;
+                user.phone = req.body.phone;
+
+                if(req.file){
+                    // this is the path where file will be store
+                    user.avatar = User.avatarPath + '/' + req.file.filename;
+                }
+                user.save();
+                return res.redirect('back');
+            })
+        }
+    } catch (error) {
+        console.log("error in upload user profile");
+        return;
+    }
 }
