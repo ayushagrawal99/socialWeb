@@ -1,0 +1,1 @@
+class Togglelike{constructor(t){this.toggler=t,this.toggleLike()}toggleLike(){$(this.toggler).click((function(t){t.preventDefault();let e=this;$.ajax({type:"post",url:$(e).prop("href"),success:function(t){let l=parseInt($(e).attr("data-like"));1==t.data.deleted?l-=1:l+=1,$(e).attr("data-like",l),$(e).html(l+" LIKES")},error:function(t){console.log(t)}})}))}}

@@ -1,0 +1,24 @@
+
+
+<li id="comment-<%= comment._id%>" class="comment-list">
+    <div id="comment-info">
+        <% if(comment.user.avatar.length >= 1) { %>
+            <img class="cmnt-img" src="<%= comment.user.avatar[comment.user.avatar.length-1] %>" alt="<%= comment.user.name%>">
+        <% } else { %> 
+            <img class="cmnt-img" src="<%= assetPath('images/avtar_pic.jpg')%>">
+        <% } %>
+        <a href="/users/profile/<%= comment.user._id%>"><p class="cmt-name"><%= comment.user.name%></p></a>
+    </div>
+    <p class="cmnt-cnt"><%= comment.content%></p>
+    <% if(locals.user) {%> 
+
+        <a id="like" class="toggle-like-button" data-like="<%= comment.likes.length%>" href="/likes/toggle/?id=<%= comment._id%>&type=Comment"><%= comment.likes.length %><i class="far fa-thumbs-up"></i> LIKE</a>
+    
+    <% } else { %>
+        
+            <span><%= comment.likes.length %> Likes</span>
+    <% } %>
+    <% if((locals.user.id == comment.user.id) || (locals.user.id == post.user.id)) { %> 
+        <a href="/comment/delete/<%= comment._id%>" class="delete-comment"><i class="far fa-trash-alt"></i><span>Delete</span></a>
+    <% } %>
+</li>

@@ -1,66 +1,109 @@
-<link rel="stylesheet" href="/css/profile.css">
+<link rel="stylesheet"  href="<%= assetPath('css/profile.css')%>">
 
-<div id="user-profile-container">
-    <div id="profile-left"></div>
-
-    <% if(profile_user.id == locals.user.id) { %>
-        <div id="profile-info">
-            <div id="user-intro">
-                <div id="user-pic">
-                    <img src="<%= profile_user.avatar%>" alt="<%= profile_user.name%>">
-                </div>
-                <h1><%= locals.user.name%></h1>
-            </div><hr>
-            <div id="user-update">
-                <div id="user-input">
-                    <form action="/users/update/<%= profile_user.id%>" enctype="multipart/form-data" method="POST">
-                        <div class="form-fields">
-                            <label for="name">Profile Name :</label>
-                            <div id="change">
-                                <i class="fas fa-user-alt"></i>
-                                <input type="text" name="name" id="name" value="<%= profile_user.name%>" placeholder="New updated Name">
+<div id="user-profile-container"> 
+    <div id="profile-left">
+        <i id="cross3" class="far fa-times-circle"></i>
+        <% if(profile_user.id == locals.user.id) { %> 
+            <div id="friend-request-container">
+                <h1>Friend Requests</h1><hr>
+                <div id="friend-request-lists">
+                    <ul>
+                        <% if(profile_user.receivefriendRequest.length == 0) { %>
+                            <div id="no-friend-req">
+                                <h1> no friend requests</h1>
                             </div>
-                        </div>
-                        <div class="form-fields">
-                            <label for="email">Email &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</label>
-                            <div id="change">
-                                <i class="fas fa-envelope"></i>
-                                <input type="email" name="email" id="name" value="<%= profile_user.email%>" placeholder="New updated Email">
-                            </div>
-                        </div>
-                        <div class="form-fields">
-                            <label for="phone">Phone Number :</label>
-                            <div id="change">
-                                <i class="fas fa-phone-square"></i>
-                                <input type="text" name="phone" id="phone" value="<%= profile_user.phone%>" placeholder="New updated phone">
-                            </div>
-                        </div>
-                        <div class="form-fields-pic">
-                            <label for="photo">upload image :</label>
-                            <div id="change">
-                                <i class="fas fa-upload"></i>
-                                <input type="file" name="avatar" id="photo"  placeholder="New updated picture">
-                            </div>
-                        </div>
-                        <div class="form-fields-submit">
-                            <button type="submit">
-                                <i class="fas fa-user-plus"></i>
-                                <span>Update</span>
-                            </button>
-                        </div>
-                    </form>
+                        <%}%>
+                        <% for(friend of profile_user.receivefriendRequest) { %> 
+                            <li>
+                                <div class="friend-request-single-div">
+                                    <div class="requestor-image" >
+                                        <% if(friend.avatar.length >= 1) { %>
+                                            <img src="<%= friend.avatar[friend.avatar.length-1]%>" alt="<%= friend.name%>" width="100px" height="100px">
+                                        <% } else { %> 
+                                            <img src="<%= assetPath('images/avtar_pic.jpg')%>" width="100px" height="100px">
+                                        <% } %>
+                                    </div>
+                                    <div class="requestor-details">
+                                        <a href=""><h1><%= friend.name%></h1></a>
+                                        <div class="requestor-submit">
+                                            <form action="/friendship/accept-reject/<%= friend.id%>" method="POST">
+                                                <input type="submit" name="accept" value="Accept">
+                                                <input type="submit" name="reject" value="Reject">
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div> 
+                            </li>   
+                        <% } %>
+                    </ul>
                 </div>
             </div>
-        </div>
-    <%} else {%>
+        <% } %>
+    </div>
 
-        <div id="profile-info">
-            <div id="user-intro">
-                <div id="user-pic">
-                    <img src="/images/sign-up-pic.png" alt="<%= locals.user.name%>">
-                </div>
-                <h1><%= profile_user.name%></h1>
-            </div><hr>
+
+
+    <div id="profile-info">
+        <div class="dropdown">
+            <i class="fas fa-bars"></i>
+            <div class="dropdown-content">
+                <i id="cross1" class="far fa-times-circle"></i>
+               <a class="frnd" href="#"><i class="fas fa-user-friends"></i><span>Friends</span></a>
+               <a class="frnd-req" href="#"><i class="fas fa-user-plus"></i><span>Friend Requests</span></a>
+            </div>
+        </div>
+        <div id="user-intro">
+            <div id="user-pic">
+                <% if( profile_user.avatar.length >= 1) { %>
+                    <img src="<%= profile_user.avatar[profile_user.avatar.length-1]%>" alt="<%= profile_user.name%>">
+                <% } else { %> 
+                    <img src="<%= assetPath('images/avtar_pic.jpg')%>">
+                <% } %>
+            </div>
+            <h1><%= profile_user.name%></h1>
+        </div><hr>
+        <% if(profile_user.id == locals.user.id) { %>
+        <div id="user-update">
+            <div id="user-input">
+                <form action="/users/update/<%= profile_user.id%>" enctype="multipart/form-data" method="POST">
+                    <div class="form-fields">
+                        <label for="name">Profile Name :</label>
+                        <div id="change">
+                            <i class="fas fa-user-alt"></i>
+                            <input type="text" name="name" id="name" value="<%= profile_user.name%>" placeholder="New updated Name">
+                        </div>
+                    </div>
+                    <div class="form-fields">
+                        <label for="email">Email &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</label>
+                        <div id="change">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" name="email" id="name" value="<%= profile_user.email%>" placeholder="New updated Email">
+                        </div>
+                    </div>
+                    <div class="form-fields">
+                        <label for="phone">Phone Number :</label>
+                        <div id="change">
+                            <i class="fas fa-phone-square"></i>
+                            <input type="text" name="phone" id="phone" value="<%= profile_user.phone%>" placeholder="New updated phone">
+                        </div>
+                    </div>
+                    <div class="form-fields-pic">
+                        <label for="photo">upload image :</label>
+                        <div id="change">
+                            <i class="fas fa-upload"></i>
+                            <input type="file" name="avatar" id="photo"  placeholder="New updated picture">
+                        </div>
+                    </div>
+                    <div class="form-fields-submit">
+                        <button type="submit">
+                            <i class="fas fa-user-plus"></i>
+                            <span>Update</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div><hr>
+        <%} else {%>
             <div id="user-update">
                 <div id="user-input">
                     <div class="form-fields">
@@ -69,19 +112,58 @@
                     </div>
                     <div class="form-fields">
                         <label for="email">Email &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</label>
-                         <span><%= profile_user.email%></span>
+                            <span><%= profile_user.email%></span>
                     </div>
                     <div class="form-fields">
                         <label for="phone">Phone Number :</label>
                         <span><%= profile_user.phone%></span>
                     </div>
                 </div>
+            </div><hr>
+        <%}%>
+
+        <div id="all-images">
+            <div id="profile-pic-name">
+                <h1>PROFILE PICTURES</h1>
             </div>
-        </div>        
+            <div id="profile-images">
+                <% for(user_pic of profile_user.avatar) {  %>
+                    <div class="profile-image-single-div">
+                        <div class="image-div">
+                            <img src="<%= user_pic%>" alt="<%= profile_user.name%>">
+                        </div>
+                        <span class="like-cnt">0 Likes</span>
+                        <% if(profile_user.id == locals.user.id) { %> 
+                            <div class="profile-buttons">
+                                <a href="#">
+                                    <i class="far fa-thumbs-up"></i>
+                                    <span>Like</span>
+                                </a>
+                                <a href="/users/update/delete/?pic=<%= user_pic%>">
+                                    <i class="far fa-trash-alt"></i>
+                                    <span>Delete</span>
+                                </a>
+                            </div>    
+                        <%} else {%> 
+                            <div class="profile-buttons">
+                                <a href="#">
+                                    <i class="far fa-thumbs-up"></i>
+                                    <span>Like</span>
+                                </a>
+                                <a>
+                                    <i class="far fa-thumbs-down"></i>
+                                    <span>unlike</span>
+                                </a>
+                            </div>
+                        <% } %>
+                    </div>
+                <% } %>
+            </div>
+        </div>
+    </div>
+    
 
-    <%}%>
-
-
+                
     <div id="profile-friends">
         <div id="search-user">
             <form action="">
@@ -92,23 +174,36 @@
                 <input type="submit" value="search" id="search-submit">
             </form>
         </div>
+        <i id="cross2" class="far fa-times-circle"></i>
         <div id="friends-list">
             <h3>All Friends</h3><hr>
             <div id="all-friends">
                 <ul>
-                    <li>
-                        <div id="user">
-                            <div id="user-pic">
-                                <img src="" alt="">
-                            </div>
-                            <div id="user-name">
-                                <a href="#"><h2>AYUSH AGRAWAL</h2></a>
-                            </div>
-                            <div id="user-logo">
-                                <a href=""><i class="fas fa-user-plus"></i></a>
-                            </div>
+                    <% if(profile_user.friends.length == 0) { %>
+                        <div id="no-friends">
+                            <h1> no friends</h1>
                         </div>
-                    </li>
+                    <%}%>
+                    <% for(friend of profile_user.friends) { %>
+                        <li>
+                            <div id="user">
+                                <div id="user-pic">
+                                    
+                                    <% if( friend.avatar.length >= 1) { %>
+                                        <img src="<%= friend.avatar[friend.avatar.length-1]%>" alt="<%= friend.name%>">
+                                    <% } else { %> 
+                                        <img src="<%= assetPath('images/avtar_pic.jpg')%>">
+                                    <% } %>
+                                </div>
+                                <div id="user-name">
+                                    <a href="/users/profile/<%= friend.id%>"><h2><%= friend.name%></h2></a>
+                                </div>
+                                <div id="user-logo">
+                                    <a href="/friendship/delete-friend/<%= friend.id%>"><i class="fas fa-trash-alt"></i></a>
+                                </div>
+                            </div>
+                        </li>
+                    <% } %>
                 </ul>
             </div>
         </div>
@@ -117,17 +212,36 @@
 
 
 
+<script>
+    $(".fa-bars").click(function(){
+        $(".dropdown-content").css("display","block");
+    })
+
+    $("#cross1").click(function(){
+        $(".dropdown-content").css("display","none");
+    })
+
+    $(".frnd").click(function(){
+        $("#profile-friends").css("display","block");
+    })
+
+    $("#cross2").click(function(){
+        $("#profile-friends").css("display","none");
+        $(".dropdown-content").css("display","none");
+    })
+
+    $(".frnd-req").click(function(){
+        $("#profile-left").css("display","block");
+    })
+
+    $("#cross3").click(function(){
+        $("#profile-left").css("display","none");
+        $(".dropdown-content").css("display","none");
+    })
+</script>
 
 
 
 
 
 
-<% if(profile_user.id == locals.user.id) { %>
-    <p><%=locals.user.name%></p>
-    <p><%= locals.user.email%></p>
-    
-<%} else {%>
-    <p><%= profile_user.name%></p>
-    <p><%= profile_user.email%></p>
-<%}%>

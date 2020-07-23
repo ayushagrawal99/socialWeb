@@ -19,9 +19,36 @@ const userSchema =  new mongoose.Schema({
     phone : {
         type : String
     },
-    avatar : {
-        type : String
-    }
+    // ye hamare saare friends ko store krke rakhega
+    friends : [
+        {
+            type : mongoose.Schema.Types.ObjectId,
+            ref : 'User'
+        }
+    ],
+    // ye basically friend request ko store krke rakhega ki kisne-kisne friend request send ki h
+    sendfriendRequest : [
+        {
+            type : mongoose.Schema.Types.ObjectId,
+            ref : 'User'
+        }
+    ],
+    // ye frnd req receive krega, sender ki id store hogi esmein
+    receivefriendRequest : [
+        {
+            type : mongoose.Schema.Types.ObjectId,
+            ref : 'User'
+        }
+    ],
+    // avatar : {
+    //     type : String
+    // },
+    avatar : [
+        {
+            type : String
+        }
+    ]
+
 },{
     timestamps : true
 });
@@ -40,6 +67,12 @@ var storage = multer.diskStorage({
 
 // now we assign all property i.e. dest,filename to the multer so we use this 
 userSchema.statics.uploadedAvatar = multer({storage : storage}).single('avatar');
+// userSchema.statics.uploadedAvatar = multer({storage : storage}).fields([
+//     {
+//         name : 'avatar',
+//         maxCount : 10
+//     }
+// ]);
 userSchema.statics.avatarPath = AVATAR_PATH;
 
 const User = mongoose.model('User',userSchema);

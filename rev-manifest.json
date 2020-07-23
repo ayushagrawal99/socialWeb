@@ -1,0 +1,20 @@
+{
+  "css/_comment.css": "css/_comment-3b0ee5128b.css",
+  "css/_post.css": "css/_post-cfcb925895.css",
+  "css/change_password.css": "css/change_password-ac9e66257f.css",
+  "css/extra-delete.css": "css/extra-delete-f7f478feb5.css",
+  "css/footer.css": "css/footer-b734168e9f.css",
+  "css/forget_password.css": "css/forget_password-35738e1454.css",
+  "css/header.css": "css/header-148043727d.css",
+  "css/home.css": "css/home-188d2ab962.css",
+  "css/home_sign_in.css": "css/home_sign_in-b0712fa13d.css",
+  "css/home_sign_up.css": "css/home_sign_up-64317c9fe3.css",
+  "css/profile.css": "css/profile-99da66c280.css",
+  "images/avtar_pic.jpg": "images/avtar_pic-8b6d919964.jpg",
+  "images/sign-up-pic.png": "images/sign-up-pic-91447c3ba3.png",
+  "images/user_avatar_img.png": "images/user_avatar_img-e8545180c8.png",
+  "js/comment.js": "js/comment-1e911f77f2.js",
+  "js/friendship.js": "js/friendship-d41d8cd98f.js",
+  "js/post.js": "js/post-02df18eec4.js",
+  "js/toggle_like.js": "js/toggle_like-843049618d.js"
+}

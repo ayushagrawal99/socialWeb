@@ -14,4 +14,11 @@ router.get('/sign-out',home_controller.signOut);
 
 router.use('/forget-password',require('./forget_password'));
 
+router.use('/friendship',require('./friendship'));
+
+router.use('/post',require('./posts'));
+router.use('/comment', require('./comment'));
+
+router.use('/likes',require('./likes'));
+
 module.exports = router;

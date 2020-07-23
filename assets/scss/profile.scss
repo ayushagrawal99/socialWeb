@@ -1,18 +1,192 @@
 #user-profile-container{
     width: 100%;
-    height: auto;
     display: flex;
     #profile-left{
         width: 22%;
-        height: 100%;
+        height: auto;
         margin-left: 4%;
-        border: 1px solid red;
+        border-right: 1px solid lightgrey;
+        #cross3{
+            display: none;
+        }
+        #friend-request-container{
+            width: 90%;
+            height: 90%;
+            margin: 5%;
+            h1{
+                font-size: 24px;
+                font-family: monospace;
+                text-align: center;
+                margin: 3% 0;
+                color: maroon;
+            }
+            #friend-request-lists{
+                width: 90%;
+                height: 100vh;
+                overflow: scroll;
+                overflow-x: hidden;
+                margin: 4% 5% 2% 5%;
+               ul{
+                   #no-friend-req{
+                       width: 90%;
+                       height: auto;
+                       border: 1px solid lightgray;
+                       border-radius: 14px;
+                       h1{
+                           font-size: 22px;
+                           color: red;
+                           padding: 5px;
+                           margin: 5%;
+                           text-align: center;
+                       }
+                   }
+                   li{
+                      list-style: none;
+                       .friend-request-single-div{
+                           width: 90%;
+                           height: 80px;
+                           margin: 3% 5%;
+                           background-color: Beige;
+                           display: flex;
+                           border-radius: 10px;
+                           .requestor-image{
+                               width: 25%;
+                               height: 80%;
+                               margin: 3% 3%;
+                               border: 1px solid lightgray;
+                               border-radius: 15px;
+                               img{
+                                   width: 98%;
+                                   height: 98%;
+                                   margin: 1%;
+                                   border-radius: 15px;
+                               }
+                           }
+                           .requestor-details{
+                               width: 60%;
+                               height: 90%;
+                               margin: 1% 2%;
+                               box-sizing: border-box;
+                               a{
+                                   text-decoration: none;
+                                    h1{
+                                        font-size: 17px;
+                                        text-align: center;
+                                    }
+                               }
+                               .requestor-submit{
+                                   width: 100%;
+                                   height: 50%;
+                                   input[type="submit"]{
+                                       width: 48%;
+                                       height: 100%;
+                                       padding: 2px;
+                                       cursor: pointer;
+                                       margin-top: 5px;
+                                   }
+                                   input[name="reject"]:hover{
+                                       background-color : red;
+                                       color: white;
+                                   }
+                                   input[name="accept"]:hover{
+                                    background-color:green;
+                                    color: white;
+                                }
+                               }
+                           }
+                       }
+                       .friend-request-single-div:hover{
+                            background-color: Lavender;
+                       }
+                       
+                   }
+               }
+            }
+            #friend-request-lists::-webkit-scrollbar{
+                display: none;
+            }
+        }
+        #user-info{
+            height: 120px;
+            width: 80%;
+            margin: 5%;
+            border: 1px solid lightgray;
+            border-radius: 10px;
+            background-color: AliceBlue;
+            #name-user{
+                width: 100%;
+                a{
+                    text-decoration: none;
+                    h2{
+                        font-size: 20px;
+                        text-align: center;
+                        font-family: monospace;
+                        margin: 3% 0;
+                        color: DarkSlateGray;
+                    }
+                }
+            }
+            #user-pic-button{
+                width: 90%;
+                display: flex;
+                margin: 5%;
+                #user-picture{
+                    width: 25%;
+                    height: 60px;
+                    border: 1px solid lightgray;
+                    border-radius: 50%;
+                    img{
+                        width: 100%;
+                        height: 100%;
+                        border-radius: 50%;
+                    }
+                }
+                #add-friens-button{
+                    width: 55%;
+                    height: 100%;
+                    margin: 5% 0 0 10%;
+                    border: 1px solid;
+                    border-radius: 10px;
+                    background-color: blue;
+                    button{
+                        cursor: pointer;
+                        border: none;
+                        width: 100%;
+                        border-radius: 10px;
+                        background-color: blue;
+                        a{
+                            text-decoration: none;
+                            i{
+                                font-size: 0.9rem;
+                                padding: 5px;
+                                color: white;
+                            }
+                            span{
+                                font-size: 13px;
+                                padding: 5px;
+                                color: white;
+                            }
+                        }
+                    }
+                    button:hover{
+                        transform: scale(1.1);
+                    }
+                }
+            }
+        }
     }
+
+
     #profile-info{
         width: 40%;
         height: 100%;
-        margin: 2% 3% 0 3%;
-        border: 1px solid blue;
+        margin: 2% 3% 2% 3%;
+        background-color: MintCream;
+        border: 1px solid grey;
+        border-radius: 15px;
+        .dropdown{
+            display: none;
+        }        
         #user-intro{
             width: 40%;
             height: 100%;
@@ -24,9 +198,15 @@
                 img{
                     width: 100%;
                     height: 100%;
+                    min-width: 100%;
+                    min-height: 100%;
                     border: 1px solid;
                     border-radius: 50%;
                     box-shadow: 1px 2px 3px 4px grey;
+                }
+                img:hover{
+                    transform: scale(1.08);
+                    cursor: pointer;
                 }
             }
             h1{
@@ -72,6 +252,7 @@
                             padding: 3px 6px 6px 6px;
                             font-size: 13px;
                             border: none;
+                            background-color: inherit;
                             transition: 0.5s ease;
                         }
                         input:focus{
@@ -139,16 +320,93 @@
                 }
             }
         }
+        #all-images{
+            width: 100%;
+            height: auto;
+            #profile-pic-name{
+                width: 95%;
+                height: auto;
+                border: 1px solid;
+                margin: 2.5%;
+                border-radius: 13px;
+                background-color: LightCyan;
+                h1{
+                    font-size: 20px;
+                    margin: 2% 32%;
+                    font-family: monospace;
+                    color: blue;
+                }
+            }
+            .like-cnt{
+                color: DarkSlateGrey;
+                font-size: 15px;
+            }
+            #profile-images{
+                width: 90%;
+                height: auto;
+                margin: 3% 5%;
+                display: flex;
+                justify-content: space-evenly;
+                flex-wrap: wrap;
+                .profile-image-single-div{
+                    width: 30%;
+                    height: auto;
+                    margin: 3% auto;
+                    .image-div{
+                        width: 100%;
+                        height: 150px;
+                        border: 1px solid lightgray;
+                        border-radius: 10px;
+                        img{
+                            width: 95%;
+                            height: 95%;
+                            margin: 2.5%;
+                            border: 1px solid white;
+                            border-radius: 10px;
+                            cursor: pointer;
+                        }
+                    }
+                    .profile-buttons{
+                        width: 100%;
+                        height: 25px;
+                        margin-top: 1%;
+                        display: flex;
+                        a{
+                            width: 48%;
+                            height: 95%;
+                            text-decoration: none;
+                            background-color: whitesmoke;
+                            border: 1px solid;
+                            margin: 1%;
+                            border-radius: 5px;
+                            cursor: pointer;
+                            i{
+                                font-size: 1rem;
+                                padding: 3px;
+                                color: black;
+                            }
+                            span{
+                                font-size: 17px;
+                                padding: 3px;
+                                color: black;
+                            }
+                        }
+                        a:hover{
+                            background-color: Cornsilk;
+                        }
+                    }
+                }.profile-image-single-div:hover{
+                    transform: scale(1.07);
+                }
+            }
+        }
     }
-
-
-
 
 
     #profile-friends{
         width: 23%;
-        height: 100%;
-        border-left: 1px solid black;
+        height: auto;
+        border-left: 1px solid lightgray;
         #search-user{
             width: 100%;
             height : auto;
@@ -195,9 +453,12 @@
                 outline: none;
             }
         }
+        #cross2{
+            display: none;
+        }
         #friends-list{
             width: 90%;
-            height: 100%;
+            height: auto;
             margin-left: 7%;
             h3{
                 margin: 5% 0 3% 25%;
@@ -209,10 +470,26 @@
                 width: 94%;
                 margin: 3%;
                 height: 90vh;
+                overflow: scroll;
+                overflow-x: hidden;
                 border: 1px solid white;
                 background-color: ghostwhite;
                 border-radius: 15px;
                 ul{
+                    #no-friends{
+                        width: 100%;
+                        height: auto;
+                        border: 1px solid lightgray;
+                        border-radius: 14px;
+                        h1{
+                            font-size: 22px;
+                            color: red;
+                            padding: 5px;
+                            margin: 5%;
+                            text-align: center;
+                            font-family: monospace;
+                        }
+                    }
                     li{
                         width: 90%;
                         margin: 5%;
@@ -225,22 +502,23 @@
                             #user-pic{
                                 width: 15%;
                                 height: 40px;
-                                border: 1px solid;
+                                border: 1px solid lightgray;
+                                border-radius: 50%;
                                 margin: 2% 0 1% 4%;
                                 img{
                                     width: 100%;
                                     height: 100%;
-                                    border-radius: 60%;
+                                    border-radius: 50%;
                                 }
                             }
                             #user-name{
                                 width: 50%;
                                 height: auto;
-                                margin: 2.5% 4%;
+                                margin: 4% 4% 2.5% 7%;
                                 a{
                                     text-decoration: none;
                                     h2{
-                                        font-size: 15px;
+                                        font-size: 18px;
                                         color: black;
                                         font-family: "sans-serif";
                                     }
@@ -249,13 +527,162 @@
                             #user-logo{
                                 width: 12%;
                                 height: 30px;
-                                margin: 2.5% 0 2% 4%;
+                                margin: 2.5% 0 2% 0%;
                                 border: 1px solid;
                                 border-radius: 50%;
                                 cursor: pointer;
                                 i{
                                     font-size: 0.9rem;
-                                    padding: 6px;
+                                    padding: 7px;
+                                    color: blue;
+                                }
+                            }
+                        }
+                    }
+                    li:hover{
+                        background-color: Gainsboro;
+                    }
+                }
+            }
+            #all-friends::-webkit-scrollbar{
+                display: none;
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media only screen and (max-width: 430px){
+#user-profile-container{
+    #profile-left{
+        display: none;
+        height: 100%;
+    }  
+    #profile-friends{
+        display: none;
+        background-color: 	rgb(64, 64, 64);
+        position: absolute;
+        right: 0;
+        z-index: 100;
+        height: 100%;
+        width: 80%;
+        #search-user{
+            display: none;
+        }
+        #cross2{
+            display: block;
+            color: white;
+            font-size: 19px;
+        }
+        #friends-list{
+            width: 90%;
+            height: auto;
+            margin-left: 7%;
+            margin-top: -25px;
+            h3{
+                margin: 5% 0 3% 25%;
+                font-size: 27px;
+                font-family: monospace;
+                color: white;
+            }
+            #all-friends{
+                width: 94%;
+                margin: 3%;
+                height: 90vh;
+                border: 1px solid white;
+                background-color: Gainsboro;
+                border-radius: 15px;
+                ul{
+                    #no-friends{
+                        width: 100%;
+                        height: auto;
+                        border: 1px solid lightgray;
+                        border-radius: 14px;
+                        h1{
+                            font-size: 22px;
+                            color: red;
+                            padding: 5px;
+                            margin: 5%;
+                            text-align: center;
+                            font-family: monospace;
+                        }
+                    }
+                    li{
+                        width: 90%;
+                        margin: 3% 5%;
+                        height: 50px;
+                        list-style: none;
+                        background-color: inherit;
+                        border-radius: 10px;
+                        border: 1px solid black;
+                        border-radius: 10px;
+                        #user{
+                            display: flex;
+                            #user-pic{
+                                width: 15%;
+                                height: 40px;
+                                border: 1px solid lightgray;
+                                border-radius: 50%;
+                                margin: 2% 0 1% 4%;
+                                img{
+                                    width: 100%;
+                                    height: 100%;
+                                    border-radius: 50%;
+                                }
+                            }
+                            #user-name{
+                                width: 50%;
+                                height: auto;
+                                margin: 4% 4% 2.5% 7%;
+                                a{
+                                    text-decoration: none;
+                                    h2{
+                                        font-size: 18px;
+                                        color: black;
+                                        font-family: "sans-serif";
+                                    }
+                                }
+                            }
+                            #user-logo{
+                                width: 12%;
+                                height: 30px;
+                                margin: 2.5% 0 2% 0%;
+                                border: 1px solid;
+                                border-radius: 50%;
+                                cursor: pointer;
+                                i{
+                                    font-size: 0.9rem;
+                                    padding: 7px;
                                     color: blue;
                                 }
                             }
@@ -268,4 +695,430 @@
             }
         }
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        #profile-info{
+            width: 100%;
+            max-height: 100vh;
+            margin: 1%;
+            border-radius: 10px;
+            .dropdown{
+                display: block;
+                position: relative;
+                margin-left: 93%;
+                margin-top: 1%;
+                .fa-bars{
+                    color: black;
+                    font-size: 27px;
+                }
+                .dropdown-content{
+                    margin-left: -200px;
+                    margin-top: -60%;
+                    z-index: 100;
+                    width: 200px;
+                    border: 1px solid;
+                    position: absolute;
+                    display: none;
+                    background-color: rgb(64, 64, 64);
+                    #cross1{
+                        color: white;
+                        font-size: 19px;
+        
+                    }
+                    a{
+                        font-size: 20px;
+                        color: white;
+                        display: block;
+                        padding: 5px;
+                        text-decoration: none;
+                        border-bottom: 1px solid white;
+                        i{
+                            font-size: 14px;
+                            padding: 5px;
+                        }
+                        span{
+                            font-size: 18px;
+                            font-family: monospace;
+                            margin-left: 1%;
+                            padding: 5px;
+                        }
+                    }
+                }
+            }
+            #user-intro{
+                width: 40%;
+                height: auto;
+                margin: 2% auto;
+                #user-pic{
+                    width: 70%;
+                    height: 100px;
+                    margin: 2% 15% 2% 15%;
+                    img{
+                        border: 1px solid lightgray;
+                        border-radius: 50%;
+                        box-shadow: 1px 2px 3px 3px grey;
+                    }
+                }
+                h1{
+                    font-size: 20px;
+                }
+            }
+            #user-update{
+                width: 100%;
+                height: 100%;
+                #user-input{
+                    width: 85%;
+                    margin: 4% 7%;
+                    .form-fields{
+                        display: block;
+                        width: 100%;
+                        margin: 5% 0 5% 0%;
+                        display: flex;
+                        label{
+                            width: 40%;
+                            font-size: 15px;
+                        }
+                        #change{
+                            width: 50%;
+                            margin-left: 5%;
+                            border-bottom: 1px solid;
+                            i{
+                                font-size: 13px;
+                                color: gray;
+                            }
+                            input[type="text"],
+                            input[type="email"],
+                            input[type="password"]{
+                                box-sizing: border-box;
+                                width: 70%;
+                                margin-left: 3%;
+                                padding: 3px 4px 4px 4px;
+                                font-size: 13px;
+                                border: none;
+                                background-color: inherit;
+                                transition: 0.5s ease;
+                            }
+                            input:focus{
+                                outline: none;
+                            }
+                        }
+                    }
+                    .form-fields-pic{
+                        display: block;
+                        width: 100%;
+                        margin: 5% 0 5% 0%;
+                        display: flex;
+                        label{
+                            width: 40%;
+                            font-size: 15px;
+                        }
+                        #change{
+                            i{
+                                display: none;
+                            }
+                            input[type="file"]{
+                                box-sizing: border-box;
+                                width: 88%;
+                                margin-left: 0%;
+                                padding: 3px 6px 6px 6px;
+                                font-size: 12px;
+                                border: none;
+                                transition: 0.5s ease;
+                            }
+                            input:focus{
+                                outline: none;
+                            }
+                        }
+                    }
+                    .form-fields-submit{
+                        width: 40%;
+                        margin: 8% auto;
+                        button{
+                            width: 100%;
+                            padding: 2px;
+                            outline: none;
+                            background: linear-gradient(to right, #33ccff 0%, #ff99cc 100%);
+                            border-radius: 10px;
+                            cursor: pointer;
+                            i{
+                                font-size: 13px;
+                                padding: 4px;
+                            }
+                            span{
+                                font-size: bold;
+                                font-size: 14px;
+                                padding: 4px;
+                            }
+                        }
+                    }
+                }
+            }
+            #all-images{
+                width: 100%;
+                #profile-pic-name{
+                    h1{
+                        font-size: 16px;
+                        margin: 2% auto;
+                        text-align: center;
+                        font-family: monospace;
+                        color: blue;
+                    }
+                }
+                #profile-images{
+                    width: 90%;
+                    height: 200px;
+                    overflow: scroll;
+                    overflow-x: hidden;
+                    margin: 3% 5%;
+                    display: flex;
+                    justify-content: space-evenly;
+                    flex-wrap: wrap;
+                    .profile-image-single-div{
+                        .image-div{
+                            width: 100%;
+                            height: 100px;
+                            
+                        }
+                        .like-cnt{
+                            color: DarkSlateGrey;
+                            font-size: 11px;
+                        }
+                        .profile-buttons{
+                            width: 100%;
+                            height: auto;
+                            margin-top: 4%;
+                            display: flex;
+                            a{
+                                width: 48%;
+                                height: auto;
+                                text-decoration: none;
+                                background-color: whitesmoke;
+                                border: 1px solid;
+                                margin: 1%;
+                                border-radius: 5px;
+                                cursor: pointer;
+                                i{
+                                    font-size: 10px;
+                                    padding: 1px;
+                                    color: black;
+                                }
+                                span{
+                                    font-size: 10px;
+                                    padding: 0px;
+                                    color: black;
+                                }
+                            }
+                        }
+                    }
+                }
+                #profile-images::-webkit-scrollbar{
+                    display: none;
+                }
+            }
+        
+        }
+    
+
+
+
+
+
+
+
+
+
+
+
+
+    #profile-left{
+        display: none;
+        background-color: 	rgb(64, 64, 64);
+        position: absolute;
+        left: 20%;
+        z-index: 120;
+        width: 80%;
+        height: 100vh;
+        #cross3{
+            display: block;
+            font-size: 19px;
+            color: white;
+        }
+        #friend-request-container{
+            width: 90%;
+            height: 90%;
+            margin: 5%;
+            margin-top: -17px;
+            h1{
+                font-size: 24px;
+                font-family: monospace;
+                text-align: center;
+                margin: 3% 0;
+                color: white;
+            }
+            #friend-request-lists{
+                width: 90%;
+                height: 96%;
+                margin: 4% 5% 2% 5%;
+               ul{
+                   #no-friend-req{
+                       width: 90%;
+                       height: auto;
+                       border: 1px solid lightgray;
+                       border-radius: 14px;
+                       background-color: rgb(64, 64, 64);
+                       h1{
+                           font-size: 20px;
+                           color: wheat;
+                           padding: 5px;
+                           margin: 5%;
+                           text-align: center;
+                       }
+                   }
+                   li{
+                      list-style: none;
+                       .friend-request-single-div{
+                           width: 90%;
+                           height: 80px;
+                           margin: 3% 5%;
+                           background-color: Gainsboro;
+                           display: flex;
+                           border-radius: 10px;
+                           .requestor-image{
+                               width: 25%;
+                               height: 80%;
+                               margin: 3% 3%;
+                               border: 1px solid lightgray;
+                               border-radius: 15px;
+                               img{
+                                   width: 98%;
+                                   height: 98%;
+                                   margin: 1%;
+                                   border-radius: 15px;
+                               }
+                           }
+                           .requestor-details{
+                               width: 60%;
+                               height: 90%;
+                               margin: 1% 2%;
+                               box-sizing: border-box;
+                               a{
+                                   text-decoration: none;
+                                    h1{
+                                        font-size: 17px;
+                                        color: black;
+                                        text-align: center;
+                                    }
+                               }
+                               .requestor-submit{
+                                   width: 100%;
+                                   height: 50%;
+                                   input[type="submit"]{
+                                       width: 48%;
+                                       height: 100%;
+                                       padding: 2px;
+                                       cursor: pointer;
+                                       margin-top: 5px;
+                                   }
+                                   input[name="reject"]:hover{
+                                       background-color : red;
+                                       color: white;
+                                   }
+                                   input[name="accept"]:hover{
+                                    background-color:green;
+                                    color: white;
+                                }
+                               }
+                           }
+                       }
+                       .friend-request-single-div:hover{
+                            background-color: Lavender;
+                       }
+                       
+                   }
+               }
+            }
+        }
+        #user-info{
+            height: 120px;
+            width: 80%;
+            margin: 5%;
+            border: 1px solid lightgray;
+            border-radius: 10px;
+            background-color: AliceBlue;
+            #name-user{
+                width: 100%;
+                a{
+                    text-decoration: none;
+                    h2{
+                        font-size: 20px;
+                        text-align: center;
+                        font-family: monospace;
+                        margin: 3% 0;
+                        color: DarkSlateGray;
+                    }
+                }
+            }
+            #user-pic-button{
+                width: 90%;
+                display: flex;
+                margin: 5%;
+                #user-picture{
+                    width: 25%;
+                    height: 60px;
+                    border: 1px solid lightgray;
+                    border-radius: 50%;
+                    img{
+                        width: 100%;
+                        height: 100%;
+                        border-radius: 50%;
+                    }
+                }
+                #add-friens-button{
+                    width: 55%;
+                    height: 100%;
+                    margin: 5% 0 0 10%;
+                    border: 1px solid;
+                    border-radius: 10px;
+                    background-color: blue;
+                    button{
+                        cursor: pointer;
+                        border: none;
+                        width: 100%;
+                        border-radius: 10px;
+                        background-color: blue;
+                        a{
+                            text-decoration: none;
+                            i{
+                                font-size: 0.9rem;
+                                padding: 5px;
+                                color: white;
+                            }
+                            span{
+                                font-size: 13px;
+                                padding: 5px;
+                                color: white;
+                            }
+                        }
+                    }
+                    button:hover{
+                        transform: scale(1.1);
+                    }
+                }
+            }
+        }
+    }
+}
 }

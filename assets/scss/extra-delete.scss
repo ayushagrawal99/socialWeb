@@ -1,0 +1,202 @@
+#Post-container{
+    width: 90%;
+    height: auto;
+    margin: 2% 5%;
+    #post-form{
+        width: 90%;
+        height: 70px;
+        margin: 0 5%;
+        textarea{
+            width: 70%;
+            height: 90%;
+            padding: 5px;
+            border-radius : 10px;
+            border: 1px solid black;
+            outline: none;
+        }
+        input[type="submit"]{
+            font-size: 15px;
+            padding: 3px;
+            font-weight: bold;
+            width: 15%;
+            margin: -10% 0% 0 5%;
+        }
+
+    }
+    #post-display{
+        width: 90%;
+        margin: 0 5%;
+        ul{
+            li{
+                list-style: none;
+                .single-post-container{
+                    width: 90%;
+                    border: 1px solid lightgray;
+                    background-color: LightGoldenRodYellow;
+                    border-radius: 12px;
+                    margin: 2% 5%;
+                    .post-creator-name{
+                        width: 100%;
+                        margin: 2% 2%;
+                        display: flex;
+                        img{
+                            width: 9%;
+                            height: 35px;
+                            border-radius: 50%;
+                        }
+                        a{
+                            text-decoration: none;
+                            h1{
+                                font-size: 17px;
+                                margin: 12% 30%;
+                                font-family: monospace;
+                                color: brown;
+                            }
+                        }
+                    }
+                    .post-content{
+                        width: 80%;
+                        margin: 3% 13%;
+                        p{
+                            text-align: justify;
+                            font-size: 16px;
+                        }
+                    }
+                    .post-buttons{
+                        width: 72%;
+                        margin: 0 14% 2% 14%;
+                        background-color: Cornsilk;
+                        a{
+                            button{
+                                width: 32%;
+                                border: none;
+                                cursor: pointer;
+                                background-color: inherit;
+                                i{
+                                    font-size: 15px;
+                                    padding: 6px 2px;
+                                }
+                                span{
+                                    font-size: 15px;
+                                    padding: 6px 2px;
+                                }
+                            }
+                            button:hover{
+                                background-color: Lavender;
+                            }
+                            button:focus{
+                                outline: none;
+                            }
+                        }
+                    }
+                    #post-comments{
+                        width: 80%;
+                        height: auto;
+                        margin: 5% 10%;
+                        // display: none;
+                        #comment-form{
+                            width: 100%;
+                            height: auto;
+                            input[type="text"]{
+                                padding: 5px;
+                                width: 70%;
+                                border: none;
+                                color: black;
+                                border: 1px solid;
+                                border-radius: 12px;
+                            }
+                            input[type="submit"]{
+                                padding: 5px;
+                                width: 20%;
+                                border: none;
+                                border: 1.5px solid;
+                                border-radius: 10px;
+                                margin-left: 5%;
+                                cursor: pointer;
+                            }
+                            input[type="text"]:focus,
+                            input[type="submit"]:focus{
+                                outline: none;
+                            }
+                            input[type="submit"]:hover{
+                                background-color: AntiqueWhite;
+                            }
+                        }
+                        .all-comments{
+                            width: 100%;
+                            height: auto;
+                            ul{
+                                li{
+                                    list-style: none;
+                                    .comment-single-container{
+                                        width: 90%;
+                                        margin: 3% 5%;
+                                        height: auto;
+                                        padding: 7px;
+                                        display: flex;
+                                        background-color: LemonChiffon;
+                                        border: 1px solid lightgray;
+                                        border-radius : 13px;
+                                        .comment-creator-image{
+                                            width: 13%;
+                                            height: 40px;
+                                            border: 1px solid lightgray;
+                                            border-radius: 50%;
+                                            img{
+                                                width: 95%;
+                                                height: 95%;
+                                                margin: 2.5%;
+                                                border-radius: 50%;
+                                            }
+                                        }
+                                        .comment-details{
+                                            width: 70%;
+                                            margin-left: 5%;
+                                            margin-top: 2%;
+                                            .comment-div{
+                                                width: 100%;
+                                                height: auto;
+                                                border: 1px solid lightgray;
+                                                background-color: HoneyDew;
+                                                border-radius: 14px;
+                                                h1{
+                                                    width: 100%;
+                                                    font-size: 15px;
+                                                    margin: 2%;
+                                                }
+                                                p{
+                                                    font-size: 15px;
+                                                    color: black;
+                                                    margin-left: 5%;
+                                                    margin-bottom: 3%;
+                                                }
+                                            }
+                                            .comment-like-delete{
+                                                width: 100%;
+                                                margin-top: 2%;
+                                                span{
+                                                    width: 30%;
+                                                    font-size: 15px;
+                                                    font-weight: 600;
+                                                    margin-left: 10%;
+                                                }
+                                                a{
+                                                    font-size: 16px;
+                                                    font-weight: 600;
+                                                    text-decoration: none;
+                                                    color: black;
+                                                    cursor: pointer;
+                                                    margin-left: 10%;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,11 +1,43 @@
-<link rel="stylesheet" href="/css/home.css">
+<link rel="stylesheet"  href="<%= assetPath('css/home.css')%>"> 
+<link rel="stylesheet" href="<%= assetPath('css/_post.css')%>">
+<link rel="stylesheet" href="<%= assetPath('css/_comment.css')%>">
 
 
 <div id="home-container">
     <div id="left-home"></div>
-    <div id="middle-home"></div>
+
+
+
+
+    <div id="middle-home">
+        <div id="hover-user"><i class="fas fa-users"></i></div>
+       <% if(locals.user) { %>
+            <% if(locals.user.avatar.length >= 1) { %>
+                <img class="post-img" src="<%= locals.user.avatar[locals.user.avatar.length-1]%>" alt="<%= locals.user.name%>">
+            <% } else { %> 
+                <img class="post-img" src="<%= assetPath('images/avtar_pic.jpg')%>">
+            <% } %>
+            <form action="/post/create" method="POST" id="form-post">
+                <textarea name="content" cols="40" rows="2" placeholder="post here..."></textarea>
+                <input type="submit" value="Post">
+            </form>
+            <div id="post-container">
+                <ul>
+                    <% for(post of posts) { %>
+                       
+                        <%- include('_post');-%>
+                        
+                    <% } %>
+                </ul>
+            </div>
+        <% } %>
+    </div>
+
+
+
 
     <div id="aside-home">
+        <i class="far fa-times-circle"></i>
         <div id="search-user">
             <form action="">
                 <span>
@@ -20,22 +52,59 @@
             <div id="all-users">
                 <ul>
                     <% for(u of all_user) { %> 
-                        <li>
-                            <div id="user">
-                                <div id="user-pic">
-                                    <img src="" alt="">
-                                </div>
-                                <div id="user-name">
-                                    <a href="/users/profile/<%= u.id%>"><h2><%= u.name%></h2></a>
-                                </div>
-                                <div id="user-logo">
-                                    <a href=""><i class="fas fa-user-plus"></i></a>
-                                </div>
-                            </div>
-                        </li>
+                        <% if(u.id != locals.user.id) { %>
+                            <li>
+                                <div id="user">
+                                    <div id="user-pic">
+                                        <% if(u.avatar.length >= 1) { %>
+                                            <img src="<%= u.avatar[u.avatar.length-1]%>" alt="<%= u.name%>">
+                                        <% } else { %> 
+                                            <img src="<%= assetPath('images/avtar_pic.jpg')%>">
+                                        <% } %>
+                                    </div>
+                                    <div id="user-name">
+                                        <a href="/users/profile/<%= u.id%>"><h2><%= u.name%></h2></a>
+                                    </div>
+                                    <div id="user-logo">
+                                        <% if(locals.user.friends.includes(u.id)) { %> 
+                                            <a href="/friendship/delete-friend/<%= u.id%>" class="delete-friend"><i class="fas fa-trash-alt"></i></a>
+                                        <% } else if( (u.receivefriendRequest.includes(locals.user.id)) || (u.sendfriendRequest.includes(locals.user.id)) ) {%>
+                                            <a href="/friendship/already-send-request/<%= u.id%>" class="friend-request"><i class="fas fa-user-check"></i></a>
+                                        <% } else {%>
+                                            <a href="/friendship/send-request/<%= u.id%>" class="send-friend-request"><i class="fas fa-user-plus"></i></a>
+                                        <% } %>
+                                    </div>
+                                </div>   
+                            </li>
+                        <% } %>
                     <%}%>
                 </ul>
             </div>
         </div>
     </div>
 </div>
+
+
+
+<script src="<%= assetPath('js/comment.js')%>"></script> 
+<script src="<%= assetPath('js/post.js')%>" ></script>
+
+
+<script src="<%= assetPath('js/toggle_like.js')%>"></script>
+<script>
+    $('.toggle-like-button').each(function(){
+        let self = this;
+        let toggleLike = new Togglelike(self);
+    })
+</script>
+
+
+<script>
+    $("#hover-user").click(function(){
+        $('#aside-home').css("display","block");
+    });
+
+    $(".fa-times-circle").click(function(){
+        $("#aside-home").css("display","none");
+    })
+</script>

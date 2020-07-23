@@ -1,5 +1,36 @@
 const User = require("../models/users");
 const passport = require('passport');
+const Post = require("../models/post");
+
+// it will open user Home page when user sign-in done
+module.exports.home = async function(req,res){
+    try {
+        let user = await User.find({})
+        .sort('-createdAt')
+        .populate('friends', 'name email avatar');
+
+        let post = await Post.find({})
+        .sort('-createdAt')
+        .populate('user','name email avatar')
+        .populate({
+            path : 'comments',
+            populate : {
+                path : 'user likes'
+            }
+        })
+        .sort('-createdAt')
+        .populate('likes');
+        
+        return res.render('home',{
+            title : "Home Page",
+            all_user : user,
+            posts : post
+        })
+    } catch (error) {
+        console.log("error in home controller",error);
+        return;
+    }
+}
 
 // it will open sign-up page (localhost:8000/)
 module.exports.signUp = function(req,res){
@@ -21,22 +52,6 @@ module.exports.signIn = function(req,res){
     return res.render('home_sign_in',{
         title : "User Sign-In"
     })
-}
-
-// it will open user Home page when user sign-in done
-module.exports.home = async function(req,res){
-    try {
-        let user = await User.find({}).sort('-createdAt');
-        
-        return res.render('home',{
-            title : "Home Page",
-            all_user : user
-        })
-    } catch (error) {
-        console.log("error in home controller",error);
-        return;
-    }
-        
 }
 
 // this will sign-out the user from website

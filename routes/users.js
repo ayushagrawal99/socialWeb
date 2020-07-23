@@ -14,6 +14,7 @@ router.post('/create_session',passport.authenticate(
 router.get('/profile/:id',passport.checkAuthentication,userController.profile);
 
 router.post('/update/:id',passport.checkAuthentication,userController.update);
+router.get('/update/delete/',passport.checkAuthentication,userController.deleteImages);
 
 // google will respond on this url when google find out the user on own database
 router.get('/auth/google/callback', passport.authenticate(
@@ -23,6 +24,18 @@ router.get('/auth/google/callback', passport.authenticate(
 
 // this url is used for going to google sign-in page
 router.get('/auth/google',passport.authenticate('google',{scope : ['profile','email']}));
+
+
+router.get('/auth/github', passport.authenticate(
+    'github',
+    {scope : ['user:email']}
+));
+
+router.get('/auth/github/callback', passport.authenticate(
+    'github',
+    {failureRedirect : '/sign-in'}
+),userController.createSession);
+
 
 module.exports = router;
 

@@ -1,0 +1,45 @@
+
+
+<li id="post-<%= post.id%>" class="post-list">
+    <div id="post-info">
+        <% if(post.user.avatar.length >= 1) { %>
+            <img class="post-info-img" src="<%= post.user.avatar[post.user.avatar.length-1]%>" alt="<%= post.user.name%>">
+        <% } else { %> 
+            <img class="post-info-img" src="<%= assetPath('images/avtar_pic.jpg')%>">
+        <% } %>
+        <a href="/users/profile/<%= post.user._id%>"><p class="post-user"><%= post.user.name%></p></a>
+    </div>
+    <p class="post-cont"><%= post.content%></p>
+    <% if(locals.user) { %> 
+
+        <a class="toggle-like-button" data-like="<%= post.likes.length%>" href="/likes/toggle/?id=<%= post._id%>&type=Post"><%= post.likes.length%><i class="far fa-thumbs-up"></i> LIKE</a>
+    
+    <% } else { %>
+
+            <span class="like-count"><%= post.likes.length %><i class="far fa-thumbs-up"></i> LIKES</span>
+    <% } %>
+
+    <% if(locals.user.id == post.user._id) { %> 
+    <a href="/post/delete/<%= post.id%>" class="delete-post"><i class="far fa-trash-alt"></i><span>Delete</span></a>
+    <% } else { %>
+        <a href="#" class="delete-post"><i class="far fa-comment-alt"></i><span>Comment</span></a>
+    <% } %>
+
+    <div id="comment">
+         <form class="comment-form" action="/comment/create" method="POST" id="new-post-comment-<%= post._id%>">
+             <input type="text" name="content" placeholder="comment here.." required>
+             <input type="hidden" name="post" value="<%= post._id%>">
+             <input type="submit" value="comment">
+         </form>
+         <div id="comment-container">
+             <ul id="post-comment-<%= post.id%>">
+                <% for(comment of post.comments) { %> 
+
+                    <%- include('_comment');-%>
+
+                <% } %>
+             </ul>
+         </div>
+    </div>
+</li>
+

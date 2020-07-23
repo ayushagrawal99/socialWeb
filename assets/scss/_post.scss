@@ -1,0 +1,202 @@
+.post-list{
+    width: 100%;
+    border: 1px solid grey;
+    border-radius: 10px;
+    list-style: none;
+    margin: 5% 0 0 0;
+    #post-info{
+        width: 90%;
+        margin: 5%;
+        .post-info-img{
+            width: 40px;
+            height: 40px;
+            border: 1px solid lightgrey;
+            border-radius: 50%;
+        }
+        a{
+            text-decoration: none;
+            .post-user{
+                font-size: 17px;
+                font-family: monospace;
+                font-weight: bold;
+                color: red;
+                margin-top: -10%;
+                margin-left: 15%;
+            }
+        }
+    }
+    .post-cont{
+        width: 83%;
+        margin: 4% 5% 5% 12%;
+        font-size: 17px;
+        overflow-wrap: break-word;
+        text-align: justify;
+    }
+    .toggle-like-button{
+        margin-left: 20%;
+        text-decoration: none;
+        border: 1px solid blue;
+        padding: 5px;
+        border-radius: 10px;
+        .fa-thumbs-up{
+            font-size: 16px;
+            margin-left: 10px;
+        }
+    }
+    .delete-post{
+        width: 14%;
+        margin-left: 10%;
+        font-size: 17px;
+        text-decoration: none;
+        padding: 5px;
+        border: 1px solid blue;
+        border-radius: 10px;
+        .fa-trash-alt{
+            margin-right: 3%;
+        }
+        .fa-comment-alt{
+            margin-right: 3%;
+            font-size: 15px;
+            color: blue;
+        }
+    }
+    #comment{
+        width: 100%;
+        margin-top: 4%;
+        .comment-form{
+            width: 80%;
+            margin-top: 1%;
+            margin-left: 10%;
+            input[type="text"]{
+                padding: 5px;
+                width: 60%;
+                margin-top: 1%;
+                border: none;
+                border: 1px solid black;
+                border-radius: 10px;
+            }
+            input[type="submit"]{
+                width: 25%;
+                margin-left: 5%;
+                border: none;
+                border: 1px solid black;
+                border-radius: 8px;
+                cursor: pointer;
+                padding: 4px;
+            }
+            input[type="text"]:focus{
+                outline: none;
+            }
+        }
+        #comment-container{
+            width: 80%;
+            max-height: 220px;
+            margin: 3% 10%;
+            overflow: scroll;
+            overflow-x: hidden;
+            ul{
+
+            }
+        }
+        #comment-container::-webkit-scrollbar{
+            display: none;
+        }
+    }
+}
+
+
+
+
+
+@media only screen and (max-width: 420px){
+    .post-list{
+        margin: 3% 0 0 0;
+        #post-info{
+            width: 90%;
+            margin: 3% 5%;
+            .post-info-img{
+                width: 35px;
+                height: 35px;
+                border: 1px solid lightgrey;
+                border-radius: 50%;
+            }
+            a{
+                text-decoration: none;
+                .post-user{
+                    margin-top: -14%;
+                    margin-left: 20%;
+                    font-size: 14px;
+                }
+            }
+        }
+        .post-cont{
+            width: 85%;
+            margin: 8% 7% 6% 10%;
+            font-size: 15px;
+            text-align: justify;
+        }
+        .toggle-like-button{
+            margin-left: 20%;
+            padding: 3px;
+            border-radius: 10px;
+            font-size: 13px;
+            .fa-thumbs-up{
+                font-size: 12px;
+                margin-left: 10px;
+            }
+        }
+        .delete-post{
+            margin-left: 5%;
+            font-size: 14px;
+            text-decoration: none;
+            padding: 3px;
+            border: 1px solid blue;
+            border-radius: 10px;
+            .fa-trash-alt{
+                margin-right: 3%;
+            }
+            .fa-comment-alt{
+                margin-right: 3%;
+                font-size: 13px;
+                color: blue;
+            }
+        }
+        #comment{
+            width: 100%;
+            margin-top: 4%;
+            .comment-form{
+                width: 80%;
+                margin-top: 5%;
+                margin-left: 9%;
+                input[type="text"]{
+                    padding: 4px;
+                    width: 60%;
+                    margin-top: 1%;
+                    font-size: 12px;
+                }
+                input[type="submit"]{
+                    width: 32%;
+                    margin-left: 5%;
+                    border: none;
+                    border: 1px solid black;
+                    border-radius: 8px;
+                    cursor: pointer;
+                    padding: 2px;
+                }
+            }
+            #comment-container{
+                width: 86%;
+                max-height: 175px;
+                margin: 3% 7%;
+                ul{
+    
+                }
+            }
+            #comment-container::-webkit-scrollbar{
+                display: none;
+            }
+        }
+    }
+    
+    
+}

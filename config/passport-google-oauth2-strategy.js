@@ -4,13 +4,14 @@ const passport = require('passport');
 const googleStrategy = require('passport-google-oauth').OAuth2Strategy;
 const crypto = require('crypto');
 const User = require('../models/users');
+const env = require('./environment');;
 
 // we use google strategy for log-in
 passport.use(new googleStrategy({
     // ye 3no hmne jb google pe identity save ki thi tb mila hoga
-    clientID: "1054227222064-7knpgi38dd1aipset8n466hgqgdfrtfn.apps.googleusercontent.com",
-    clientSecret: "PZ99muHLbd_q65ymmabZPjkB",
-    callbackURL: "http://localhost:8000/users/auth/google/callback"
+    clientID: env.google_client_id,
+    clientSecret: env.google_client_secret,
+    callbackURL: env.google_callback_url
   },
   function(accessToken, refreshToken, profile, done) {
     // yaha profile.emails[0].value ka mtlb ye email dega jo hmne google wala mail select kiya tha. basically profile mein emails name ka ek field h
