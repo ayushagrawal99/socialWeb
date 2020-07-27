@@ -53,7 +53,7 @@ module.exports.profile = async function(req,res){
 module.exports.update = async function(req,res){
     try {
         if(req.params.id == req.user.id){
-            let user = await User.findById(req.params.id);
+            let user = await User.findByIdA(req.params.id);
               User.uploadedAvatar(req,res, function(err){
                 if(err){console.log("error in file upload",err); return;}
 
